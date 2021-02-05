@@ -17,19 +17,38 @@ import os
 # C Drive
 cDrive='C:\\UTS20\\Users\\Guest'
 
-# F Drive
+# F Drive Old Computer
 fDrive='F:\\UTS20\\Users\\Guest'
 
-# E Drive
+# E Drive New Computer
 eDrive='E:\\UTS20\\Users\\Guest'
 
 
-def workToHome(src,dst):
+def workToHomeArriving():
+    shutil.rmtree(cDrive)
+    shutil.copytree(fDrive, cDrive)
+    print("Files successfully copied from the Flash Drive to the Computer")
+
+def workToHomeLeaving():
+    shutil.rmtree(fDrive)
     shutil.copytree(cDrive, fDrive)
     print("Files successfully copied from the Computer to the Flash Drive")
 
-
-def homeToWork(src,dst):
+def homeToWorkArriving():
+    shutil.rmtree(cDrive)
     shutil.copytree(eDrive, cDrive)
     print("Files successfully copied from the Flash Drive to the Computer")
 
+def homeToWorkLeaving():
+    shutil.rmtree(eDrive)
+    shutil.copytree(cDrive, eDrive)
+    print("Files successfully copied from the Flash Drive to the Computer")
+
+def main():
+    ans = input('Are you leavin')
+    if ans in ['H', 'Home', 'home']:
+        homeToWork()
+    elif ans in ['W', 'Work', 'work']:
+        workToHome()
+    else:
+        
