@@ -4,7 +4,7 @@ Title: File Transfer
 Date: February 4th, 2020
 Author: Javier Diaz
 Purpose: To move files from the C drive to a flash
-    drive so that mom could access the work she did 
+    drive so that mom could access the work she did
     for the taxes.
 ****************************************************
 '''
@@ -45,10 +45,17 @@ def homeToWorkLeaving():
     print("Files successfully copied from the Flash Drive to the Computer")
 
 def main():
-    ans = input('Are you leavin')
-    if ans in ['H', 'Home', 'home']:
-        homeToWork()
-    elif ans in ['W', 'Work', 'work']:
-        workToHome()
+    leave_arrive = input('Are you leaving or arriving?')
+    if leave_arrive in ['Leave', 'leave', 'l', 'L', 'Leaving', 'leaving']:
+        ans1 = input('Home or Work?')
+        if ans1 in ['Home','home', 'H']:
+            homeToWorkLeaving()
+        else:
+            workToHomeLeaving()
     else:
-        
+        if ans1 in ['Home','home', 'H']:
+            homeToWorkArriving()
+        else:
+            workToHomeArriving()
+    exit()
+            
