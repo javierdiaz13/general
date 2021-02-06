@@ -19,11 +19,15 @@ cDrive='C:\\UTS20\\Users\\Guest'
 # F Drive Old Computer
 fDrive='F:\\UTS20\\Users\\Guest'
 
+# Location of index.htm file in Old Computer
 fIndex='C:\UTS20\TWHomepage'
 
 # E Drive New Computer
 eDrive='E:\\UTS20\\Users\\Guest'
 
+def createBackup(drive):
+    name=input('Give the backup folder a name')
+    shutil.copytree(drive, 'C:\\{}'.format(name))
 
 def workToHomeArriving():
     shutil.rmtree(cDrive)
