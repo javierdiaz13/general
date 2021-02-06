@@ -87,6 +87,7 @@ if leave_arrive in ['Leave', 'leave', 'l', 'L', 'Leaving', 'leaving']:
     else:
         workToHomeLeaving()
 else:
+    home_work = input('Home or Work?\n')
     if home_work in ['Home','home', 'H']:
         workToHomeArriving()
     else:
