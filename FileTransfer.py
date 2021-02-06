@@ -34,6 +34,15 @@ indexFileE='E:\\UTS20\\TWHomepage\index.htm'
 # Location of index.htm file in F Drive (Old)
 indexFileF='F:\\UTS20\\TWHomepage\index.htm'
 
+# Location of index.htm file in  Computer
+indexFileC1='C:\\UTS20\\TWHomepage\index1.htm'
+
+# Location of index.htm file in E Drive (New)
+indexFileE1='E:\\UTS20\\TWHomepage\index1.htm'
+
+# Location of index.htm file in F Drive (Old)
+indexFileF1='F:\\UTS20\\TWHomepage\index1.htm'
+
 def createBackup(drive):
     name=str(input('Give the name of the Backup Folder you want to create: '))
     backupFileLoc='C:\\{}'.format(name)
@@ -46,28 +55,36 @@ def createBackup(drive):
 def homeToWorkLeaving():
     shutil.rmtree(eDrive)
     os.remove(indexFileE)
+    os.remove(indexFileE1)
     shutil.copy(indexFileC, indexFileE)
+    shutil.copy(indexFileC1, indexFileE1)
     shutil.copytree(cDrive, eDrive)
     print("Files successfully copied from the Flash Drive to the Computer\n")
 
 def homeToWorkArriving():
     shutil.rmtree(cDrive)
     os.remove(indexFileC)
+    os.remove(indexFileC1)
     shutil.copy(indexFileF, indexFileC)
+    shutil.copy(indexFileF1, indexFileC1)
     shutil.copytree(fDrive, cDrive)
     print("Files successfully copied from the Flash Drive to the Computer\n")
 
 def workToHomeLeaving():
     shutil.rmtree(fDrive)
     os.remove(indexFileF)
+    os.remove(indexFileF1)
     shutil.copy(indexFileC, indexFileF)
+    shutil.copy(indexFileC1, indexFileF1)
     shutil.copytree(cDrive, fDrive)
     print("Files successfully copied from the Computer to the Flash Drive\n")
 
 def workToHomeArriving():
     shutil.rmtree(cDrive)
     os.remove(indexFileC)
+    os.remove(indexFileC1)
     shutil.copy(indexFileE, indexFileC)
+    shutil.copy(indexFileE1, indexFileC1)
     shutil.copytree(eDrive, cDrive)
     print("Files successfully copied from the Flash Drive to the Computer\n")
 
