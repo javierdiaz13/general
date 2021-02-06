@@ -10,7 +10,6 @@ Purpose: To move files from the C drive to a flash
 '''
 
 import shutil
-import os
 
 # Global Variables
 
@@ -19,6 +18,8 @@ cDrive='C:\\UTS20\\Users\\Guest'
 
 # F Drive Old Computer
 fDrive='F:\\UTS20\\Users\\Guest'
+
+fIndex='C:\UTS20\TWHomepage'
 
 # E Drive New Computer
 eDrive='E:\\UTS20\\Users\\Guest'
@@ -44,18 +45,17 @@ def homeToWorkLeaving():
     shutil.copytree(cDrive, eDrive)
     print("Files successfully copied from the Flash Drive to the Computer")
 
-def main():
-    leave_arrive = input('Are you leaving or arriving?')
-    if leave_arrive in ['Leave', 'leave', 'l', 'L', 'Leaving', 'leaving']:
-        ans1 = input('Home or Work?')
-        if ans1 in ['Home','home', 'H']:
-            homeToWorkLeaving()
-        else:
-            workToHomeLeaving()
+
+leave_arrive = input('Are you leaving or arriving?')
+if leave_arrive in ['Leave', 'leave', 'l', 'L', 'Leaving', 'leaving']:
+    ans1 = input('Home or Work?')
+    if ans1 in ['Home','home', 'H']:
+        homeToWorkLeaving()
     else:
-        if ans1 in ['Home','home', 'H']:
-            homeToWorkArriving()
-        else:
-            workToHomeArriving()
-    exit()
-            
+        workToHomeLeaving()
+else:
+    if ans1 in ['Home','home', 'H']:
+        homeToWorkArriving()
+    else:
+        workToHomeArriving()
+exit()
