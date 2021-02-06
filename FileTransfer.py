@@ -80,16 +80,21 @@ while leave_arrive not in ['Leave', 'leave', 'l', 'L', 'Leaving', 'leaving', 'Ar
     leave_arrive = input('Are you leaving or arriving?\n')
 
 if leave_arrive in ['Leave', 'leave', 'l', 'L', 'Leaving', 'leaving']:
+    # Leaving
     createBackup(cDrive)
     home_work = input('Home or Work?\n')
     if home_work in ['Home','home', 'H']:
+        # Leaving the house, going to hackensack
         homeToWorkLeaving()
     else:
         workToHomeLeaving()
 else:
+    # Arriving
     home_work = input('Home or Work?\n')
     if home_work in ['Home','home', 'H']:
+        # Left work, arriving at home
         workToHomeArriving()
     else:
+        # Left home, arriving in hackensack
         homeToWorkArriving()
 exit()
